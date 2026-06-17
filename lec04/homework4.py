@@ -1,4 +1,3 @@
-
 def next_birthday(date, birthdays):
     '''
     Find the next birthday after the given date.
@@ -12,7 +11,12 @@ def next_birthday(date, birthdays):
     birthday - the next day, after given date, on which somebody has a birthday
     list_of_names - list of all people with birthdays on that date
     '''
-    birthday = (1,1)
-    list_of_names = []
-    return birthday, list_of_names
-    
+
+    dates = sorted(birthdays.keys())
+
+    for birthday in dates:
+        if birthday > date:
+            return birthday, birthdays[birthday]
+
+    first_birthday = dates[0]
+    return first_birthday, birthdays[first_birthday]
